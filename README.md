@@ -17,8 +17,9 @@ A Python script that automates the process of finding and replacing specific col
 ## Usage
 
 1. Update the `input_directory` and `output_directory` variables in the script to match your local environment.
-2. Ensure the script has permission to access and modify files in both the input and output directories.
-3. Run the script using your Python environment or by executing `python script_name.py` in your command line or terminal.
+2. Customize the target colors and hues based on user requirements
+3. Ensure the script has permission to access and modify files in both the input and output directories.
+4. Run the script using your Python environment or by executing `python script_name.py` in your command line or terminal.
 
 ## Contributing
 
