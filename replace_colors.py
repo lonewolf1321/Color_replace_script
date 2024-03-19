@@ -16,23 +16,30 @@ def generate_target_colors(original_colors):
     invalid_colors = []
 
     for color in original_colors:
+        # Ensure color has enough characters to extract RGB values
         if len(color) == 9:
+            # Extract hue from original color
             try:
                 hex_to_rgb = lambda h: (int(h[1:3], 16), int(h[3:5], 16), int(h[5:7], 16))
                 rgb_color = hex_to_rgb(color)
                 hsv_color = colorsys.rgb_to_hsv(*rgb_color)
                 hue = hsv_color[0] * 360
 
+                # Find the closest hue in the hues list
                 closest_hue_index = round((hue - min(hues)) / (max(hues) - min(hues)))
                 closest_hue = hues[closest_hue_index]
 
+                # Convert closest hue to RGB and generate target colo
                 rgb_color = colorsys.hsv_to_rgb(closest_hue / 360, hsv_color[1], hsv_color[2])
                 target_color = "#{:02x}{:02x}{:02x}".format(int(255 * rgb_color[0]), int(255 * rgb_color[1]), int(255 * rgb_color[2]))
+                
+                # Skip invalid color values and store them in the invalid_colors list
                 target_colors.append(target_color[:9])  # Only keep the first 9 digits
             except (ValueError, IndexError):
                 invalid_colors.append(color)
                 target_colors.append(color)
         else:
+            # If color string is not 8-digit hex code, append the original color
             target_colors.append(color)
 
     return target_colors, invalid_colors
