@@ -5,7 +5,7 @@ import colorsys
 input_directory = "/home/nobody/Documents/dialer"
 output_directory = "/home/nobody/Documents"
 
-
+#This script is for replacing hex color codes with alpha (ie. #ffffffff), the generated color codes will be in hex code too
 print("Input directory:", input_directory)
 print("Output directory:", output_directory)
 print("Input directory contents:", os.listdir(input_directory))
